@@ -128,4 +128,4 @@ http://www.bioinformatics.dtu.dk/english
 
 ## Algorithmic Flow Chart  
 
-![](/doc/Mupexi_flow_chart.png)
+![](https://github.com/Xiaohuaniu0032/NeoPred/tree/main/MuPeXI/doc/Mupexi_flow_chart.png)
