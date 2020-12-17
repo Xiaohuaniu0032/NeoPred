@@ -1,2 +1,2 @@
 # NeoPred
-predict tumor neoantigens using MuPeXI software
+predict tumor neoantigens using NeoPredPipe software
