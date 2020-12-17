@@ -1,0 +1,4 @@
+Can't open perl script "/Users/schencro/Desktop/Bioinformatics_Tools/annovar/convert2annovar.pl": 没有那个文件或目录
+Can't open perl script "/Users/schencro/Desktop/Bioinformatics_Tools/annovar/annotate_variation.pl": 没有那个文件或目录
+Can't open perl script "/Users/schencro/Desktop/Bioinformatics_Tools/annovar/convert2annovar.pl": 没有那个文件或目录
+Can't open perl script "/Users/schencro/Desktop/Bioinformatics_Tools/annovar/annotate_variation.pl": 没有那个文件或目录
