@@ -94,7 +94,13 @@ class Sample():
         self.appendedEpitopes = None
         self.regionsPresent = None
         self.ProcessAnnovar(FilePath, annovar, Options)
-        if Options.typeII:
+        
+        # step1: ProcessAnnovar() # only for preponly mode
+        # step2: callNeoantigens() # call Neo
+        # step3: digestIndSample() # post process
+        
+        
+        if Options.typeII: # default is False
             self.hlasnormed = ConstructAlleles_typeII(self.hla, FilePath, self.patID)
         else:
             self.hlasnormed = ConstructAlleles(self.hla, FilePath, self.patID)
@@ -103,7 +109,10 @@ class Sample():
             print("INFO: Input files prepared and completed for %s" % (self.patID))
         else:
             self.callNeoantigens(FilePath, netmhcpan, Options)
-            if Options.postprocess:
+            #print("self.epcalls...") # for debug
+            #print(self.epcalls)
+
+            if Options.postprocess: # default is True
                 self.digestIndSample(FilePath, pepmatchPaths, Options)
 
     def ProcessAnnovar(self, FilePath, annovar, Options):
@@ -138,6 +147,7 @@ class Sample():
         # Make tmp files.
         i = 0
         pepTmp = {}
+
         for n in Options.epitopes:
             if os.path.isfile(Options.OutputDir+"fastaFiles/%s.tmp.%s.fasta"%(self.patID,n)) and os.path.isfile("fastaFiles/%s.tmp.%s.fasta"%(self.patID,str(n)+'.Indels')):
                 pepTmp.update({n:Options.OutputDir+"fastaFiles/%s.tmp.%s.fasta"%(self.patID,n)})
@@ -146,7 +156,8 @@ class Sample():
                 i+=1
                 if i == len(Options.epitopes):
                     self.peptideFastas = pepTmp
-        if i != len(Options.epitopes):
+        
+        if i != len(Options.epitopes): # call MakeTempFastas() to make several tmp files
             self.peptideFastas = MakeTempFastas(self.fastaChangeFormat, Options.epitopes)
 
         # Predict neoantigens
@@ -172,12 +183,14 @@ class Sample():
         if self.epcalls != []:
             toDigestSNVs = filter(lambda y: 'Indels.txt' not in y, self.epcalls)
             toDigestIndels = filter(lambda y: 'Indels.txt' in y, self.epcalls)
+           
             if toDigestSNVs != []:
                 self.digestedEpitopes = DigestIndSample(toDigestSNVs, self.patID, Options, pmPaths)
                 self.appendedEpitopes, self.regionsPresent = AppendDigestedEps(FilePath, self.digestedEpitopes, self.patID, self.annotationReady, self.avReadyFile, Options)
             else:
                 self.appendedEpitopes = None
                 self.regionsPresent = None
+
             if toDigestIndels != []:
                 self.digestedEpitopesIndels = DigestIndSample(toDigestIndels, self.patID, Options, pmPaths, True)
                 self.appendedEpitopesIndels, self.regionsPresentIndels = AppendDigestedEps(FilePath, self.digestedEpitopesIndels, self.patID, self.annotationReady, self.avReadyFile, Options)
@@ -451,9 +464,13 @@ def main():
     # Pull information about usr system files
     localpath = os.path.abspath(__file__).replace('NeoPredPipe.py', '')  # path to scripts working directory
     Options = Parser()
+    #print("manualproc value is ...")
+    #print(Options.manualproc)
     Config = configparser.ConfigParser()
     Config.read(localpath + "usr_paths.ini")
     annPaths = ConfigSectionMap(Config.sections()[0], Config)  # get annovar script paths
+    #print("annPaths is ...")
+    #print(annPaths)
     annPaths['build'] = annPaths['gene_table'].split('/')[-1].split('_')[0] # get build version from name of gene table (hg19/hg38_refGene...)
     annPaths['gene_model'] = annPaths['gene_table'].split('/')[-1].split('_')[1].replace(".txt","") # get gene model from X_somethingGene.txt
     if annPaths['build'] not in ['hg19', 'hg38', 'hg18']:
@@ -516,8 +533,8 @@ def main():
             print("INFO: Complete")
         else:
             print("INFO: Complete")
-
-    CleanUp(Options)
+    # not remove temp files for dubug
+    #CleanUp(Options)
 
 if __name__=="__main__":
     main()
