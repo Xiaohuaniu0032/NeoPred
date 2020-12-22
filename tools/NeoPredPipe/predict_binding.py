@@ -32,6 +32,12 @@ def predict_neoantigens(FilePath, patName, inFile, hlasnormed, epitopeLens, netM
         pipe = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout
         k = int(pipe.read().decode("utf-8").lstrip(" ").split(" ")[0])
         checks[n]=k
+        
+        #print("n is ...")
+        #print(n)
+        
+        #print("k value is...")
+        #print(k)
 
     epcalls = []
     for n in inFile:
