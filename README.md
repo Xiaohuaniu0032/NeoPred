@@ -39,7 +39,7 @@ before do the test, you need to change two config files:
 
 1) /path//tools/OptiType-1.3.2/config.ini.example (you need to change `razers3` binary path and `solver`. if you use `glpk` as your solver, you need to install `glpk`)
 
-2) /path/tools/NeoPredPipe/usr_paths.ini (you need to change `annovar`, `netMHCpan`, `blast`, `PeptideMatch` is optional)
+2) /path/tools/NeoPredPipe/usr_paths.ini (you need to change `annovar`, `netMHCpan` and `blast`. `PeptideMatch` is optional)
 
 
 1. `cd /path/NeoPred/test`
