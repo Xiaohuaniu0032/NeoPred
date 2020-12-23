@@ -34,6 +34,14 @@ the main steps in `NeoPredPipe` includes:
 4. predict the recognition potential of predicted neoantigens (see `https://doi.org/10.1038/nature24473`, Nature, 2017)
 
 ## Test
+> Note:
+before do the test, you need to change two config files:
+
+1) /path//tools/OptiType-1.3.2/config.ini.example (you need to change `razers3` binary path and `solver`. if you use `glpk` as your solver, you need to install `glpk`)
+
+2) /path/tools/NeoPredPipe/usr_paths.ini (you need to change `annovar`, `netMHCpan`, `blast`, `PeptideMatch` is optional)
+
+
 1. `cd /path/NeoPred/test`
 2. `sh test.sh`
 
@@ -52,7 +60,7 @@ drwxrwxr-x 2 fulongfei fulongfei 4096 12月 22 16:57 fastaFiles
 drwxrwxr-x 2 fulongfei fulongfei 4096 12月 22 14:00 tmp
 ```
 
-the main result files are: `TestRun.neoantigens.txt` and `TestRun.neoantigens.Indels.txt`
+the main result files are: `*.neoantigens.txt` and `*.neoantigens.Indels.txt`
 
 you can see `https://github.com/MathOnco/NeoPredPipe` *Output Format* part for details.
 
@@ -68,7 +76,7 @@ besides above, you also need:
 4. bedtools
 
 ## Reference
-1. `NeoPredPipe`: high-throughput neoantigen prediction and recognition potential pipeline, BMC Bioinformatics, 2019
-2. `https://github.com/MathOnco/NeoPredPipe`
+1. NeoPredPipe: high-throughput neoantigen prediction and recognition potential pipeline, BMC Bioinformatics, 2019
+2. https://github.com/MathOnco/NeoPredPipe
 
 
