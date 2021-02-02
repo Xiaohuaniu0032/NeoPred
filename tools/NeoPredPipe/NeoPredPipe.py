@@ -175,9 +175,9 @@ class Sample():
             if i == 2*len(Options.epitopes):
                 self.epcalls = epTmp
         if i!=2*len(Options.epitopes):
-            if i>0:
+            if i>0: # first remove pre-exists files
                 os.system("rm "+Options.OutputDir+"tmp/"+self.patID+".epitopes.*.txt") # if doing predictions, remove existing files to ensure double predicting happens
-            self.epcalls = predict_neoantigens(Options.OutputDir, self.patID, self.peptideFastas, self.hlasnormed , Options.epitopes, netmhcpan, Options)
+            self.epcalls = predict_neoantigens(Options.OutputDir, self.patID, self.peptideFastas, self.hlasnormed , Options.epitopes, netmhcpan, Options) # epcalls is a list which contains the tmp/*.epitopes.*.txt
 
     def digestIndSample(self, FilePath, pmPaths, Options):
         if self.epcalls != []:
@@ -185,7 +185,16 @@ class Sample():
             toDigestIndels = filter(lambda y: 'Indels.txt' in y, self.epcalls)
            
             if toDigestSNVs != []:
-                self.digestedEpitopes = DigestIndSample(toDigestSNVs, self.patID, Options, pmPaths)
+                self.digestedEpitopes = DigestIndSample(toDigestSNVs, self.patID, Options, pmPaths) # read NetMHCPan raw result file. self.digestedEpitopes is a list contain all lines of NetMHCPan:
+                '''
+                1  HLA-C*01:02        NNFLNIDL  NNFLNID-L  0  0  0  7  1     NNFLNIDL line143_NM_0189 0.0243450 38421.4 35.0000
+                2  HLA-C*01:02        NFLNIDLI  NFL-NIDLI  0  0  0  3  1     NFLNIDLI line143_NM_0189 0.0300120 36136.4 28.3213
+                3  HLA-C*01:02        FLNIDLIT  FLN-IDLIT  0  0  0  3  1     FLNIDLIT line143_NM_0189 0.0256420 37886.0 33.3141
+                4  HLA-C*01:02        LNIDLITM  LNID-LITM  0  0  0  4  1     LNIDLITM line143_NM_0189 0.0402320 32353.5 20.2878
+                5  HLA-C*01:02        NIDLITMA  NIDLITM-A  0  0  0  7  1     NIDLITMA line143_NM_0189 0.0200820 40235.1 41.6970
+                '''
+                # self.annotationReady: avannotated/*.avannotated.exonic_variant_function
+                # self.avReadyFile    : avready/*.avinput
                 self.appendedEpitopes, self.regionsPresent = AppendDigestedEps(FilePath, self.digestedEpitopes, self.patID, self.annotationReady, self.avReadyFile, Options)
             else:
                 self.appendedEpitopes = None
@@ -273,7 +282,7 @@ def FinalOut(sampleClasses, Options, indelProcess=False):
 
     outTable = Options.OutputDir + Options.outName + filePostFix + ".summarytable.txt"
 
-    summaryTable = []
+    summaryTable = [] # not used
     with open(outFile, 'w') as pentultimateFile:
         if Options.includeall==True:
             for i in range(0, len(sampleClasses)):

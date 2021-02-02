@@ -31,7 +31,6 @@ my $chr_naming = &chr_naming($ref_fa);
 # bamtofastq using bedtools' bamtofastq
 
 my $hla_sam = "$outdir/$name\_hla.sam";
-open SAM, ">$hla_sam" or die;
 
 my $cmd = "samtools view -H $bam >$hla_sam";
 system($cmd);
