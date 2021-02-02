@@ -121,15 +121,15 @@ print SH "$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_cl
 
 # get SB neo peptide
 # for SNV
-my $snv = "$outdir/$name\.neoantigens.txt";
-die "can not find SNV Neo predict result: $snv\n" if (!-e $snv);
-$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $snv SNV $rank $outdir";
+my $snv = "$outdir/$name/$name\.neoantigens.txt";
+#die "can not find SNV Neo predict result: $snv\n" if (!-e $snv);
+$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $snv SNV $rank $outdir/$name";
 print SH "$cmd\n";
 
 # for INDEL
-my $indel = "$outdir/$name\.neoantigens.Indels.txt";
-die "can not find InDel Nep predict result: $indel\n" if (!-e $indel);
-$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $indel InDel $rank $outdir";
+my $indel = "$outdir/$name/$name\.neoantigens.Indels.txt";
+#die "can not find InDel Nep predict result: $indel\n" if (!-e $indel);
+$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $indel InDel $rank $outdir/$name";
 print SH "$cmd\n";
 close SH;
 

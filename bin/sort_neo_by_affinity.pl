@@ -11,7 +11,7 @@ use File::Basename;
 my ($infile,$type,$rank,$od) = @ARGV;
 
 my $name = (split /\./, basename($infile))[0];
-my $outfile = "$od/$name\.neo\.$type.strong.binder.SB.xls";
+my $outfile = "$od/$name\.neo\.$type.SB.xls";
 
 
 my %sb;
