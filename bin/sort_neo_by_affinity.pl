@@ -29,7 +29,7 @@ while (<IN>){
 }
 close IN;
 
-print "[INFO]: find $sb_n SB neo peptide for $name\n";
+print "[INFO]: find $sb_n SB neo peptide for $name \[$type\]\n";
 
 open O, ">$outfile" or die;
 print O "Sample\tR1\tLine\tChr\tRefPos\tRef\tAlt\tGeneName:RefSeqID\tPos\tHLA\tPeptide\tCore\tOf\tGp\tGl\tIp\tIl\tIcore\tIdentity\tScore\tAff(nM)\tRank(%)\tCandidate\tBindLevel\n";
