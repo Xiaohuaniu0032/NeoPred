@@ -3,3 +3,4 @@ test/*
 tools/NeoPredPipe/*.pyc
 tools/NeoPredPipe/__pycache__/*.pyc
 tools/OptiType-1.3.2/*.pyc
+tools/NeoPredPipe/TEST/*
