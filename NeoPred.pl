@@ -112,7 +112,7 @@ if (!-d "$outdir/$name/vcf_clean"){
 	`mkdir $outdir/$name/vcf_clean`;
 }
 
-my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl $tvcf $outdir/$name/vcf_clean";
+my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean";
 print SH "$cmd\n";
 
 
