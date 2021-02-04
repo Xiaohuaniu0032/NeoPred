@@ -5,12 +5,13 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$nbam,$rank,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
+my ($name,$tvcf,$nbam,$bed,$rank,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
     "vcf:s" => \$tvcf,                # tumor vcf file          [Need] 
     "nbam:s" => \$nbam,               # normal bam file         [Need]
+    "bed:s"  => \$bed,                # BED file                [Need]
     "rank:f" => \$rank,               # SB binder cutoff        [Default: < 0.5]
     "od:s" => \$outdir,               # output dir              [Need]
     "col:i" => \$col,                 # tumor col after FORMAT  [Default: 0] # FORMAT  TUMOR   NORMAL
@@ -35,7 +36,7 @@ GetOptions(
 
 
 # check args
-if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir){
+if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir || not defined $bed){
     die "please check you args spec\n";
 }
 
@@ -119,18 +120,33 @@ print SH "$cmd\n";
 # main method
 print SH "$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_clean -H $hla_result -o $outdir/$name -n $name -c $col -E 8 9 10\n";
 
-# get SB neo peptide
-# for SNV
-my $snv = "$outdir/$name/$name\.neoantigens.txt";
-#die "can not find SNV Neo predict result: $snv\n" if (!-e $snv);
-$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $snv SNV $rank $outdir/$name";
+
+
+# get SB peptide
+# outfile is: *.epi.[8|9|10].[SNV|InDel].final.result.xls
+my @len = qw/8 9 10/;
+my @type = qw/SNV InDel/;
+
+for my $len (@len){
+	for my $t (@type){
+		$cmd = "perl $Bin/bin/parse_NetMHCPan_raw_result.SNV.InDel.pl -n $name -t $t -l $len -d $outdir -od $outdir/$name";
+		print SH "$cmd\n";
+	}
+}
+
+# summary SNV & InDel result into final result file
+# outfile is: *.Neo.Pred.Result.Final.xls
+$cmd = "perl $Bin/bin/summary_result.pl $outdir/$name $name $outdir/$name";
 print SH "$cmd\n";
 
-# for INDEL
-my $indel = "$outdir/$name/$name\.neoantigens.Indels.txt";
-#die "can not find InDel Nep predict result: $indel\n" if (!-e $indel);
-$cmd = "perl $Bin/bin/sort_neo_by_affinity.pl $indel InDel $rank $outdir/$name";
+
+# calculate tumor neo burden (TNB)
+# outfile is: *.TNB.txt
+my $neo_res = "$outdir/$name/$name\.Neo.Pred.Result.Final.xls";
+$cmd = "perl $Bin/bin/cal_TNB.pl $neo_res $name $bed $outdir/$name\n";
 print SH "$cmd\n";
+
+
 close SH;
 
 
