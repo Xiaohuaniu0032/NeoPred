@@ -1,5 +1,8 @@
 tools/OptiType-1.3.2/test/*
-test/*
+
+test/*/*.bam
+test/*/*.sam
+
 tools/NeoPredPipe/*.pyc
 tools/NeoPredPipe/__pycache__/*.pyc
 tools/OptiType-1.3.2/*.pyc

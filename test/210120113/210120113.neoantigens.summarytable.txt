@@ -1,0 +1,2 @@
+Sample	Total	Total_WB	Total_SB	Total_Region_0	Total_WB_Region_0	Total_SB_Region_0	Clonal	Subclonal	Shared	Clonal_WB	Clonal_SB	Subclonal_WB	Subclonal_SB	Shared_WB	Shared_SB
+210120113	68	52	16	68	52	16	68	0	0	52	16	0	0	0	0

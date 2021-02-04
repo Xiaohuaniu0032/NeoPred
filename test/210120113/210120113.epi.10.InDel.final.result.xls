@@ -1,0 +1,2 @@
+Sample	line	VariantType	EpitopeLen	Gene	Chr	Pos	Ref	Alt	NM	Exon	c.HGVS	p.HGVS	VariantFunctionAnnot	RefDepth	AltDepth	VAF(%)	HLA	Peptide	Core	Of	Gp	Gl	Ip	Il	Icore	Identity	Score	Affinity(nM)	Rank(%)
+210120113	line188	InDel	10	BCORL1	X	129190011	C	-	NM_021946	exon12	c.5036delC	p.S1679fs	frameshift deletion	2064	32	1.53	HLA-A*24:20	SWCGTSQTYF	SWCGTSQTF	0	8	1	0	0	SWCGTSQTYF	line188_NM_021946	0.5137440	192.7	0.3528
