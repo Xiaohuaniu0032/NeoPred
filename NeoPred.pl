@@ -5,11 +5,12 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$nbam,$bed,$rank,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
+my ($name,$tvcf,$sampleType,$nbam,$bed,$rank,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
-    "vcf:s" => \$tvcf,                # tumor vcf file          [Need] 
+    "vcf:s" => \$tvcf,                # tumor vcf file          [Need]
+    "stype:s" => \$sampleType,        # sample type             [Default: Tissue] or Plasma
     "nbam:s" => \$nbam,               # normal bam file         [Need]
     "bed:s"  => \$bed,                # BED file                [Need]
     "rank:f" => \$rank,               # SB binder cutoff        [Default: < 0.5]
@@ -74,6 +75,14 @@ if (not defined $rank){
 	$rank = 0.5; # default SB binder cutoff
 }
 
+if (not defined $sampleType){
+	$sampleType = "Tissue";
+}
+
+# check sample type value
+if ($sampleType ne "Tissue" and $sampleType ne "Plasma"){
+	die "-stype can only be: Tissue or Plasma\n";
+}
 
 # make result dir
 if (!-d "$outdir/$name"){
@@ -113,7 +122,7 @@ if (!-d "$outdir/$name/vcf_clean"){
 	`mkdir $outdir/$name/vcf_clean`;
 }
 
-my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean";
+my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean -t $sampleType";
 print SH "$cmd\n";
 
 
