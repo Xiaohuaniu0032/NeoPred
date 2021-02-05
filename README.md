@@ -2,17 +2,23 @@
 predict tumor neoantigens using NeoPredPipe software
 
 ## Usage
-`perl NeoPred.pl -n <sample name> -vcf <tumor vcf> -nbam <normal bam> -bed <bed> -rank <rank> -od <output dir> -col <tumor col in vcf> -py2 <python2> -py3 <python3> -samtools <samtools> -bedtools <bedtools> -ref <ref fasta>`
+`perl NeoPred.pl -n <sample name> -vcf <tumor vcf> -tcol <tumor col in VCF> -stype <sample type> -nbam <normal bam> -bed <bed> -rank <rank> -aff <affinity> -od <output dir> -col <tumor col in vcf> -py2 <python2> -py3 <python3> -samtools <samtools> -bedtools <bedtools> -ref <ref fasta>`
 ### parameter specification
 `-n`: sample name [Need]
 
 `-vcf`: tumor vcf file [Need]
 
+`-tcol`: tumor col in vcf file [Default: 10]
+
+`-stype`: sample type [Default: Tissue] [Tissue | Plasma]
+
 `-nbam`: normal bam file [Need]
 
 `-bed`: bed file [Need]
 
-`rank`: NetMHCPan rank [Default:0.5]
+`-rank`: NetMHCPan rank [Default:0.5]
+
+`-aff`: affinity with MHC [Default: 500]
 
 `-od`: output dir [Need]
 
@@ -150,7 +156,17 @@ Sample  TNB
 
 3) alt reads num >= 3 (for tissue) and >= 5 (for plasma)
 
->Note: we do not filter VAF at this stage, you can filter predict Neo result by VCF from final result file.
+>Note: 
+
+>1) we do not filter VAF at this stage, you can filter predict Neo result by VCF from final result file.
+
+>2) `tcol`: the tumor col in VCF file
+
+in this example, the TUMOR column in VCF is 10 (1-9 col is must column in VCF file)
+
+```
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  TUMOR   NORMAL
+```
 
 
 ## How to select peptide with strong affinity with MHC Class-I
