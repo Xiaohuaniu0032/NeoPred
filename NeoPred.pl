@@ -5,17 +5,18 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$sampleType,$nbam,$bed,$rank,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
+my ($name,$tvcf,$tcol,$sampleType,$nbam,$bed,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
     "vcf:s" => \$tvcf,                # tumor vcf file          [Need]
-    "stype:s" => \$sampleType,        # sample type             [Default: Tissue] or Plasma
+    "tcol:i" => \$tcol,               # tumor Col in VCF        [Default:10]
+    "stype:s" => \$sampleType,        # sample type             [Default: Tissue]   <Tissue | Plasma>
     "nbam:s" => \$nbam,               # normal bam file         [Need]
     "bed:s"  => \$bed,                # BED file                [Need]
     "rank:f" => \$rank,               # SB binder cutoff        [Default: < 0.5]
+    "aff:i" => \$aff,                 # affinity to MHC (nM)    [Default: 500]
     "od:s" => \$outdir,               # output dir              [Need]
-    "col:i" => \$col,                 # tumor col after FORMAT  [Default: 0] # FORMAT  TUMOR   NORMAL
     "py2:s" => \$py2_bin,             # python2                 [Default: /home/fulongfei/miniconda3/envs/py27/bin/python2]
     "py3:s" => \$py3_bin,             # python3                 [Default: /home/fulongfei/miniconda3/bin/python3]
     "samtools:s" => \$samtools,       # samtools bin            [Default: /home/fulongfei/miniconda3/bin/samtools]
@@ -25,6 +26,8 @@ GetOptions(
 
 
 # use NeoPredPipe software to do tumor neoantigenes prediction
+# just use NeoPredPipe to do: 1) annot VCF; 2) extract 8,9,10-mer mutant AA sequence; 3) call NetMHCPan
+
 
 # input file includes:
     # 1. tumor vcf
@@ -63,20 +66,21 @@ if (not defined $ref){
     $ref = "/data1/database/b37/human_g1k_v37.fasta";
 }
 
-if (not defined $col){
-    $col = 0;
-
-    # Note: 
-    # if FORMAT  TUMOR   NORMAL => col = 0
-    # if FORMAT  NORMAL  TUMOR  => col = 1
-}
-
 if (not defined $rank){
 	$rank = 0.5; # default SB binder cutoff
 }
 
+if (not defined $aff){
+	$aff = 500; # suggested value by PVACtools
+}
+
 if (not defined $sampleType){
 	$sampleType = "Tissue";
+}
+
+if (not defined $tcol){
+	$tcol = 10;
+	#CHROM   POS   ID   REF   ALT   QUAL   FILTER   INFO    FORMAT   TUMOR   NORMAL
 }
 
 # check sample type value
@@ -122,12 +126,12 @@ if (!-d "$outdir/$name/vcf_clean"){
 	`mkdir $outdir/$name/vcf_clean`;
 }
 
-my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean -t $sampleType";
+my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean -t $sampleType -col $tcol";
 print SH "$cmd\n";
 
 
 # main method
-print SH "$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_clean -H $hla_result -o $outdir/$name -n $name -c $col -E 8 9 10\n";
+print SH "$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_clean -H $hla_result -o $outdir/$name -n $name -E 8 9 10\n";
 
 
 
@@ -138,7 +142,7 @@ my @type = qw/SNV InDel/;
 
 for my $len (@len){
 	for my $t (@type){
-		$cmd = "perl $Bin/bin/parse_NetMHCPan_raw_result.SNV.InDel.pl -n $name -t $t -l $len -d $outdir -od $outdir/$name";
+		$cmd = "perl $Bin/bin/parse_NetMHCPan_raw_result.SNV.InDel.pl -n $name -t $t -l $len -d $outdir -od $outdir/$name -aff $aff -rank $rank";
 		print SH "$cmd\n";
 	}
 }
@@ -157,12 +161,4 @@ print SH "$cmd\n";
 
 
 close SH;
-
-
-
-
-
-
-
-
 
