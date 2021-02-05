@@ -1,1 +1,1 @@
-Sample	line	VariantType	EpitopeLen	Gene	Chr	Pos	Ref	Alt	NM	Exon	c.HGVS	p.HGVS	VariantFunctionAnnot	RefDepth	AltDepth	VAF(%)	HLA	Peptide	Core	Of	Gp	Gl	Ip	Il	Icore	Identity	Score	Affinity(nM)	Rank(%)
+Sample	Line	VariantType	EpitopeLen	Gene	Chr	Pos	Ref	Alt	NM	Exon	c.HGVS	p.HGVS	VariantFunctionAnnot	RefDepth	AltDepth	VAF(%)	HLA	Peptide	Core	Of	Gp	Gl	Ip	Il	Icore	Identity	Score	Affinity(nM)	Rank(%)

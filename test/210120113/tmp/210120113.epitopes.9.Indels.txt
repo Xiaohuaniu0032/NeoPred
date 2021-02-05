@@ -1,11 +1,11 @@
-# /data1/workdir/fulongfei/software/netMHCpan-4.0/Linux_x86_64/bin/netMHCpan -BA -l 9 -a HLA-B54:01,HLA-A11:01,HLA-C03:04,HLA-C01:02,HLA-B46:01,HLA-A24:20 -f /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/fastaFiles/210120113.tmp.9.Indels.fasta
-# Thu Feb  4 11:33:32 2021
+# /data1/workdir/fulongfei/software/netMHCpan-4.0/Linux_x86_64/bin/netMHCpan -BA -l 9 -a HLA-A11:01,HLA-C03:04,HLA-B54:01,HLA-A24:20,HLA-C01:02,HLA-B46:01 -f /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/fastaFiles/210120113.tmp.9.Indels.fasta
+# Fri Feb  5 09:58:29 2021
 # User: fulongfei
 # PWD : /home/fulongfei/workdir/git_repo/NeoPred/test/210120113
 # Host: Linux cu01 3.10.0-862.3.2.el7.x86_64 x86_64
 # -BA      1                    Make Binding affinity prediction
 # -l       9                    Peptide length [8-11] (multiple length with ,)
-# -a       HLA-B54:01,HLA-A11:01,HLA-C03:04,HLA-C01:02,HLA-B46:01,HLA-A24:20 HLA allele
+# -a       HLA-A11:01,HLA-C03:04,HLA-B54:01,HLA-A24:20,HLA-C01:02,HLA-B46:01 HLA allele
 # -f       /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/fastaFiles/210120113.tmp.9.Indels.fasta File name with input
 # Command line parameters set to:
 #	[-rdir filename]     /data1/workdir/fulongfei/software/netMHCpan-4.0/Linux_x86_64 Home directory for NetMHpan
@@ -15,7 +15,7 @@
 #	[-tdir filename]     /data1/workdir/fulongfei/software/netMHCpan-4.0/tmp/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
 #	[-hlapseudo filename] /data1/workdir/fulongfei/software/netMHCpan-4.0/Linux_x86_64/data/MHC_pseudo.dat File with HLA pseudo sequences
 #	[-hlaseq filename]                        File with full length HLA sequences
-#	[-a line]            HLA-B54:01,HLA-A11:01,HLA-C03:04,HLA-C01:02,HLA-B46:01,HLA-A24:20 HLA allele
+#	[-a line]            HLA-A11:01,HLA-C03:04,HLA-B54:01,HLA-A24:20,HLA-C01:02,HLA-B46:01 HLA allele
 #	[-f filename]        /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/fastaFiles/210120113.tmp.9.Indels.fasta File name with input
 #	[-w]                 0                    w option for webface
 #	[-s]                 0                    Sort output on descending affinity
@@ -36,45 +36,12 @@
 
 # NetMHCpan version 4.0
 
-# Tmpdir made /data1/workdir/fulongfei/software/netMHCpan-4.0/tmp/netMHCpanDVAMSy
+# Tmpdir made /data1/workdir/fulongfei/software/netMHCpan-4.0/tmp/netMHCpantysCqT
 # Input is in FSA format
 
 # Peptide length 9
 
 # Make binding affinity predictions
-
-HLA-B54:01 : Distance to training data  0.000 (using nearest neighbor HLA-B54:01)
-
-# Rank Threshold for Strong binding peptides   0.500
-# Rank Threshold for Weak binding peptides   2.000
------------------------------------------------------------------------------------
-  Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
------------------------------------------------------------------------------------
-    1  HLA-B*54:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0087690 45474.2 89.1403
-    2  HLA-B*54:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0295160 36330.8 39.0843
-    3  HLA-B*54:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0135630 43175.6 74.1292
-    4  HLA-B*54:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0418410 31795.1 26.2825
-    5  HLA-B*54:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0147870 42607.5 70.3631
-    6  HLA-B*54:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.0180680 41121.5 61.3151
-    7  HLA-B*54:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0629010 25316.3 15.3274
-    8  HLA-B*54:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0197850 40364.6 57.1375
-    9  HLA-B*54:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.0274460 37153.7 42.2516
-   10  HLA-B*54:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.2332480  4008.2  1.8654 <= WB
-   11  HLA-B*54:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0109160 44430.0 82.4936
-   12  HLA-B*54:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0575930 26812.8 17.3449
-   13  HLA-B*54:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0632000 25234.5 15.2225
-   14  HLA-B*54:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0205060 40050.9 55.4346
-   15  HLA-B*54:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.1743530  7580.4  3.1643
-   16  HLA-B*54:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.0107970 44487.2 82.8740
-   17  HLA-B*54:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.0193520 40554.2 58.1601
-   18  HLA-B*54:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0330810 34956.1 34.5376
-   19  HLA-B*54:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.0313830 35604.3 36.6069
-   20  HLA-B*54:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.0587370 26483.0 16.8760
------------------------------------------------------------------------------------
-
-Protein line188_NM_0219. Allele HLA-B*54:01. Number of high binders 0. Number of weak binders 1. Number of peptides 20
-
------------------------------------------------------------------------------------
 
 HLA-A11:01 : Distance to training data  0.000 (using nearest neighbor HLA-A11:01)
 
@@ -83,29 +50,29 @@ HLA-A11:01 : Distance to training data  0.000 (using nearest neighbor HLA-A11:01
 -----------------------------------------------------------------------------------
   Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
 -----------------------------------------------------------------------------------
-    1  HLA-A*11:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0352420 34148.3 44.6471
-    2  HLA-A*11:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0399390 32456.2 39.2933
-    3  HLA-A*11:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0088580 45430.4 94.7004
-    4  HLA-A*11:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0202870 40146.0 69.9341
-    5  HLA-A*11:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0345370 34409.8 45.5321
-    6  HLA-A*11:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.0580480 26681.1 26.1700
-    7  HLA-A*11:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0392790 32688.8 39.9654
-    8  HLA-A*11:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0241290 38511.3 62.1048
-    9  HLA-A*11:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.0410300 32075.3 38.2026
-   10  HLA-A*11:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.0249100 38187.3 60.6171
-   11  HLA-A*11:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0157020 42187.8 80.3065
-   12  HLA-A*11:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0263890 37581.0 58.0045
-   13  HLA-A*11:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0704350 23334.5 21.0577
-   14  HLA-A*11:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0558350 27327.7 27.3429
-   15  HLA-A*11:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.0606800 25932.0 24.8955
-   16  HLA-A*11:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.1060650 15869.9 13.3044
-   17  HLA-A*11:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.0240480 38545.1 62.2590
-   18  HLA-A*11:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0265110 37531.5 57.7937
-   19  HLA-A*11:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.1671880  8191.4  7.8572
-   20  HLA-A*11:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.1316610 12030.9 10.3936
+    1  HLA-A*11:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0352420 34148.3 44.6471
+    2  HLA-A*11:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0399390 32456.2 39.2933
+    3  HLA-A*11:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0088580 45430.4 94.7004
+    4  HLA-A*11:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0202870 40146.0 69.9341
+    5  HLA-A*11:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0345370 34409.8 45.5321
+    6  HLA-A*11:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.0580480 26681.1 26.1700
+    7  HLA-A*11:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0392790 32688.8 39.9654
+    8  HLA-A*11:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0241290 38511.3 62.1048
+    9  HLA-A*11:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.0410300 32075.3 38.2026
+   10  HLA-A*11:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.0249100 38187.3 60.6171
+   11  HLA-A*11:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0157020 42187.8 80.3065
+   12  HLA-A*11:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0263890 37581.0 58.0045
+   13  HLA-A*11:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0704350 23334.5 21.0577
+   14  HLA-A*11:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0558350 27327.7 27.3429
+   15  HLA-A*11:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.0606800 25932.0 24.8955
+   16  HLA-A*11:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.1060650 15869.9 13.3044
+   17  HLA-A*11:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.0240480 38545.1 62.2590
+   18  HLA-A*11:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0265110 37531.5 57.7937
+   19  HLA-A*11:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.1671880  8191.4  7.8572
+   20  HLA-A*11:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.1316610 12030.9 10.3936
 -----------------------------------------------------------------------------------
 
-Protein line188_NM_0219. Allele HLA-A*11:01. Number of high binders 0. Number of weak binders 0. Number of peptides 20
+Protein line188_NM_0011. Allele HLA-A*11:01. Number of high binders 0. Number of weak binders 0. Number of peptides 20
 
 -----------------------------------------------------------------------------------
 
@@ -116,95 +83,62 @@ HLA-C03:04 : Distance to training data  0.000 (using nearest neighbor HLA-C03:03
 -----------------------------------------------------------------------------------
   Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
 -----------------------------------------------------------------------------------
-    1  HLA-C*03:04       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0140320 42957.0 59.1868
-    2  HLA-C*03:04       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0521170 28449.4 23.2042
-    3  HLA-C*03:04       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0042930 47730.6 90.7804
-    4  HLA-C*03:04       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0307130 35863.3 35.9456
-    5  HLA-C*03:04       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0091780 45273.4 72.4743
-    6  HLA-C*03:04       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.3065680  1813.1  2.1432
-    7  HLA-C*03:04       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0765090 21850.3 15.9309
-    8  HLA-C*03:04       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0084510 45630.9 74.8104
-    9  HLA-C*03:04       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.0671020 24191.3 18.2335
-   10  HLA-C*03:04       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.0297720 36230.3 36.7564
-   11  HLA-C*03:04       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0036260 48076.4 93.3321
-   12  HLA-C*03:04       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0243400 38423.5 42.3769
-   13  HLA-C*03:04       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0510820 28769.8 23.6382
-   14  HLA-C*03:04       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0200580 40245.6 48.0931
-   15  HLA-C*03:04       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.2105040  5126.5  4.2236
-   16  HLA-C*03:04       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.0304520 35964.7 36.1732
-   17  HLA-C*03:04       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.1055160 15964.4 11.0302
-   18  HLA-C*03:04       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0174170 41412.2 52.4884
-   19  HLA-C*03:04       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.0266120 37490.5 39.8128
-   20  HLA-C*03:04       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.0857280 19775.9 14.0538
+    1  HLA-C*03:04       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0140320 42957.0 59.1868
+    2  HLA-C*03:04       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0521170 28449.4 23.2042
+    3  HLA-C*03:04       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0042930 47730.6 90.7804
+    4  HLA-C*03:04       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0307130 35863.3 35.9456
+    5  HLA-C*03:04       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0091780 45273.4 72.4743
+    6  HLA-C*03:04       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.3065680  1813.1  2.1432
+    7  HLA-C*03:04       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0765090 21850.3 15.9309
+    8  HLA-C*03:04       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0084510 45630.9 74.8104
+    9  HLA-C*03:04       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.0671020 24191.3 18.2335
+   10  HLA-C*03:04       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.0297720 36230.3 36.7564
+   11  HLA-C*03:04       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0036260 48076.4 93.3321
+   12  HLA-C*03:04       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0243400 38423.5 42.3769
+   13  HLA-C*03:04       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0510820 28769.8 23.6382
+   14  HLA-C*03:04       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0200580 40245.6 48.0931
+   15  HLA-C*03:04       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.2105040  5126.5  4.2236
+   16  HLA-C*03:04       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.0304520 35964.7 36.1732
+   17  HLA-C*03:04       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.1055160 15964.4 11.0302
+   18  HLA-C*03:04       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0174170 41412.2 52.4884
+   19  HLA-C*03:04       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.0266120 37490.5 39.8128
+   20  HLA-C*03:04       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.0857280 19775.9 14.0538
 -----------------------------------------------------------------------------------
 
-Protein line188_NM_0219. Allele HLA-C*03:04. Number of high binders 0. Number of weak binders 0. Number of peptides 20
-
------------------------------------------------------------------------------------
-
-HLA-C01:02 : Distance to training data  0.133 (using nearest neighbor HLA-C14:02)
-
-# Rank Threshold for Strong binding peptides   0.500
-# Rank Threshold for Weak binding peptides   2.000
------------------------------------------------------------------------------------
-  Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
------------------------------------------------------------------------------------
-    1  HLA-C*01:02       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0075620 46071.9 77.9478
-    2  HLA-C*01:02       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0664130 24372.3  9.9058
-    3  HLA-C*01:02       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0045400 47603.2 90.8565
-    4  HLA-C*01:02       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0230080 38981.3 36.9401
-    5  HLA-C*01:02       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0118780 43969.9 61.7355
-    6  HLA-C*01:02       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.3028560  1887.4  0.1485 <= SB
-    7  HLA-C*01:02       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0572500 26912.5 12.5772
-    8  HLA-C*01:02       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0068990 46403.6 80.7248
-    9  HLA-C*01:02       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.0447480 30810.6 17.7017
-   10  HLA-C*01:02       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.0287690 36625.6 29.6194
-   11  HLA-C*01:02       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0066850 46511.2 81.6480
-   12  HLA-C*01:02       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0148050 42599.2 53.1860
-   13  HLA-C*01:02       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0397240 32531.8 20.6231
-   14  HLA-C*01:02       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0184880 40935.1 44.6811
-   15  HLA-C*01:02       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.0582420 26625.2 12.2485
-   16  HLA-C*01:02       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.0277200 37043.7 30.7839
-   17  HLA-C*01:02       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.0485490 29569.2 15.9109
-   18  HLA-C*01:02       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0114680 44165.4 63.1013
-   19  HLA-C*01:02       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.0192020 40620.0 43.3146
-   20  HLA-C*01:02       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.0568930 27016.7 12.6955
------------------------------------------------------------------------------------
-
-Protein line188_NM_0219. Allele HLA-C*01:02. Number of high binders 1. Number of weak binders 0. Number of peptides 20
+Protein line188_NM_0011. Allele HLA-C*03:04. Number of high binders 0. Number of weak binders 0. Number of peptides 20
 
 -----------------------------------------------------------------------------------
 
-HLA-B46:01 : Distance to training data  0.000 (using nearest neighbor HLA-B46:01)
+HLA-B54:01 : Distance to training data  0.000 (using nearest neighbor HLA-B54:01)
 
 # Rank Threshold for Strong binding peptides   0.500
 # Rank Threshold for Weak binding peptides   2.000
 -----------------------------------------------------------------------------------
   Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
 -----------------------------------------------------------------------------------
-    1  HLA-B*46:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0131540 43367.0 50.3812
-    2  HLA-B*46:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0198450 40338.4 32.6998
-    3  HLA-B*46:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0026470 48588.3 96.0993
-    4  HLA-B*46:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0133670 43267.2 49.6202
-    5  HLA-B*46:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0069210 46392.6 77.9802
-    6  HLA-B*46:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.0768530 21769.1  3.6666
-    7  HLA-B*46:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0346740 34358.8 15.1190
-    8  HLA-B*46:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0067290 46489.0 78.9823
-    9  HLA-B*46:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.0404230 32286.7 11.8494
-   10  HLA-B*46:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.0086510 45532.2 69.1932
-   11  HLA-B*46:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0049350 47400.2 88.1056
-   12  HLA-B*46:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0134250 43240.1 49.4181
-   13  HLA-B*46:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0235710 38744.5 26.2660
-   14  HLA-B*46:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0200420 40252.5 32.3082
-   15  HLA-B*46:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.0488090 29486.1  8.6463
-   16  HLA-B*46:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.0565220 27125.3  6.6641
-   17  HLA-B*46:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.0388190 32851.9 12.6681
-   18  HLA-B*46:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0096820 45027.2 64.2907
-   19  HLA-B*46:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.0164180 41862.2 40.6043
-   20  HLA-B*46:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.0429510 31415.5 10.7083
+    1  HLA-B*54:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0087690 45474.2 89.1403
+    2  HLA-B*54:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0295160 36330.8 39.0843
+    3  HLA-B*54:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0135630 43175.6 74.1292
+    4  HLA-B*54:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0418410 31795.1 26.2825
+    5  HLA-B*54:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0147870 42607.5 70.3631
+    6  HLA-B*54:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.0180680 41121.5 61.3151
+    7  HLA-B*54:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0629010 25316.3 15.3274
+    8  HLA-B*54:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0197850 40364.6 57.1375
+    9  HLA-B*54:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.0274460 37153.7 42.2516
+   10  HLA-B*54:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.2332480  4008.2  1.8654 <= WB
+   11  HLA-B*54:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0109160 44430.0 82.4936
+   12  HLA-B*54:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0575930 26812.8 17.3449
+   13  HLA-B*54:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0632000 25234.5 15.2225
+   14  HLA-B*54:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0205060 40050.9 55.4346
+   15  HLA-B*54:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.1743530  7580.4  3.1643
+   16  HLA-B*54:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.0107970 44487.2 82.8740
+   17  HLA-B*54:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.0193520 40554.2 58.1601
+   18  HLA-B*54:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0330810 34956.1 34.5376
+   19  HLA-B*54:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.0313830 35604.3 36.6069
+   20  HLA-B*54:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.0587370 26483.0 16.8760
 -----------------------------------------------------------------------------------
 
-Protein line188_NM_0219. Allele HLA-B*46:01. Number of high binders 0. Number of weak binders 0. Number of peptides 20
+Protein line188_NM_0011. Allele HLA-B*54:01. Number of high binders 0. Number of weak binders 1. Number of peptides 20
 
 -----------------------------------------------------------------------------------
 
@@ -215,28 +149,94 @@ HLA-A24:20 : Distance to training data  0.000 (using nearest neighbor HLA-A24:02
 -----------------------------------------------------------------------------------
   Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
 -----------------------------------------------------------------------------------
-    1  HLA-A*24:20       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0219 0.0030190 48393.2 96.5755
-    2  HLA-A*24:20       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0219 0.0140090 42967.7 61.5075
-    3  HLA-A*24:20       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0219 0.0047840 47477.8 93.7374
-    4  HLA-A*24:20       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0219 0.0133590 43270.9 63.3774
-    5  HLA-A*24:20       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0219 0.0110110 44384.3 70.8251
-    6  HLA-A*24:20       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0219 0.1707220  7884.1  4.3598
-    7  HLA-A*24:20       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0219 0.0839790 20153.7 11.4396
-    8  HLA-A*24:20       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0219 0.0186250 40874.4 50.4551
-    9  HLA-A*24:20       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0219 0.2578230  3072.3  2.2408
-   10  HLA-A*24:20       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0219 0.0233410 38841.1 42.0730
-   11  HLA-A*24:20       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0219 0.0278340 36998.1 36.1643
-   12  HLA-A*24:20       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0219 0.0267970 37415.5 37.3959
-   13  HLA-A*24:20       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0219 0.0442360 30981.8 23.2636
-   14  HLA-A*24:20       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0219 0.0415000 31912.7 24.7953
-   15  HLA-A*24:20       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0219 0.0252170 38060.6 39.4065
-   16  HLA-A*24:20       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0219 0.1509510  9764.6  5.2316
-   17  HLA-A*24:20       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0219 0.0601690 26075.8 16.7099
-   18  HLA-A*24:20       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0219 0.0343120 34493.6 29.8418
-   19  HLA-A*24:20       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0219 0.0264650 37550.2 37.8002
-   20  HLA-A*24:20       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0219 0.0308460 35811.8 32.9478
+    1  HLA-A*24:20       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0030190 48393.2 96.5755
+    2  HLA-A*24:20       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0140090 42967.7 61.5075
+    3  HLA-A*24:20       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0047840 47477.8 93.7374
+    4  HLA-A*24:20       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0133590 43270.9 63.3774
+    5  HLA-A*24:20       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0110110 44384.3 70.8251
+    6  HLA-A*24:20       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.1707220  7884.1  4.3598
+    7  HLA-A*24:20       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0839790 20153.7 11.4396
+    8  HLA-A*24:20       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0186250 40874.4 50.4551
+    9  HLA-A*24:20       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.2578230  3072.3  2.2408
+   10  HLA-A*24:20       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.0233410 38841.1 42.0730
+   11  HLA-A*24:20       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0278340 36998.1 36.1643
+   12  HLA-A*24:20       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0267970 37415.5 37.3959
+   13  HLA-A*24:20       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0442360 30981.8 23.2636
+   14  HLA-A*24:20       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0415000 31912.7 24.7953
+   15  HLA-A*24:20       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.0252170 38060.6 39.4065
+   16  HLA-A*24:20       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.1509510  9764.6  5.2316
+   17  HLA-A*24:20       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.0601690 26075.8 16.7099
+   18  HLA-A*24:20       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0343120 34493.6 29.8418
+   19  HLA-A*24:20       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.0264650 37550.2 37.8002
+   20  HLA-A*24:20       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.0308460 35811.8 32.9478
 -----------------------------------------------------------------------------------
 
-Protein line188_NM_0219. Allele HLA-A*24:20. Number of high binders 0. Number of weak binders 0. Number of peptides 20
+Protein line188_NM_0011. Allele HLA-A*24:20. Number of high binders 0. Number of weak binders 0. Number of peptides 20
+
+-----------------------------------------------------------------------------------
+
+HLA-C01:02 : Distance to training data  0.133 (using nearest neighbor HLA-C14:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+-----------------------------------------------------------------------------------
+  Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
+-----------------------------------------------------------------------------------
+    1  HLA-C*01:02       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0075620 46071.9 77.9478
+    2  HLA-C*01:02       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0664130 24372.3  9.9058
+    3  HLA-C*01:02       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0045400 47603.2 90.8565
+    4  HLA-C*01:02       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0230080 38981.3 36.9401
+    5  HLA-C*01:02       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0118780 43969.9 61.7355
+    6  HLA-C*01:02       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.3028560  1887.4  0.1485 <= SB
+    7  HLA-C*01:02       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0572500 26912.5 12.5772
+    8  HLA-C*01:02       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0068990 46403.6 80.7248
+    9  HLA-C*01:02       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.0447480 30810.6 17.7017
+   10  HLA-C*01:02       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.0287690 36625.6 29.6194
+   11  HLA-C*01:02       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0066850 46511.2 81.6480
+   12  HLA-C*01:02       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0148050 42599.2 53.1860
+   13  HLA-C*01:02       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0397240 32531.8 20.6231
+   14  HLA-C*01:02       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0184880 40935.1 44.6811
+   15  HLA-C*01:02       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.0582420 26625.2 12.2485
+   16  HLA-C*01:02       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.0277200 37043.7 30.7839
+   17  HLA-C*01:02       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.0485490 29569.2 15.9109
+   18  HLA-C*01:02       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0114680 44165.4 63.1013
+   19  HLA-C*01:02       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.0192020 40620.0 43.3146
+   20  HLA-C*01:02       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.0568930 27016.7 12.6955
+-----------------------------------------------------------------------------------
+
+Protein line188_NM_0011. Allele HLA-C*01:02. Number of high binders 1. Number of weak binders 0. Number of peptides 20
+
+-----------------------------------------------------------------------------------
+
+HLA-B46:01 : Distance to training data  0.000 (using nearest neighbor HLA-B46:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+-----------------------------------------------------------------------------------
+  Pos          HLA         Peptide       Core Of Gp Gl Ip Il        Icore        Identity     Score Aff(nM)   %Rank  BindLevel
+-----------------------------------------------------------------------------------
+    1  HLA-B*46:01       GGLDDRSPQ  GGLDDRSPQ  0  0  0  0  0    GGLDDRSPQ line188_NM_0011 0.0131540 43367.0 50.3812
+    2  HLA-B*46:01       GLDDRSPQA  GLDDRSPQA  0  0  0  0  0    GLDDRSPQA line188_NM_0011 0.0198450 40338.4 32.6998
+    3  HLA-B*46:01       LDDRSPQAP  LDDRSPQAP  0  0  0  0  0    LDDRSPQAP line188_NM_0011 0.0026470 48588.3 96.0993
+    4  HLA-B*46:01       DDRSPQAPL  DDRSPQAPL  0  0  0  0  0    DDRSPQAPL line188_NM_0011 0.0133670 43267.2 49.6202
+    5  HLA-B*46:01       DRSPQAPLR  DRSPQAPLR  0  0  0  0  0    DRSPQAPLR line188_NM_0011 0.0069210 46392.6 77.9802
+    6  HLA-B*46:01       RSPQAPLRL  RSPQAPLRL  0  0  0  0  0    RSPQAPLRL line188_NM_0011 0.0768530 21769.1  3.6666
+    7  HLA-B*46:01       SPQAPLRLW  SPQAPLRLW  0  0  0  0  0    SPQAPLRLW line188_NM_0011 0.0346740 34358.8 15.1190
+    8  HLA-B*46:01       PQAPLRLWS  PQAPLRLWS  0  0  0  0  0    PQAPLRLWS line188_NM_0011 0.0067290 46489.0 78.9823
+    9  HLA-B*46:01       QAPLRLWSW  QAPLRLWSW  0  0  0  0  0    QAPLRLWSW line188_NM_0011 0.0404230 32286.7 11.8494
+   10  HLA-B*46:01       APLRLWSWC  APLRLWSWC  0  0  0  0  0    APLRLWSWC line188_NM_0011 0.0086510 45532.2 69.1932
+   11  HLA-B*46:01       PLRLWSWCG  PLRLWSWCG  0  0  0  0  0    PLRLWSWCG line188_NM_0011 0.0049350 47400.2 88.1056
+   12  HLA-B*46:01       LRLWSWCGT  LRLWSWCGT  0  0  0  0  0    LRLWSWCGT line188_NM_0011 0.0134250 43240.1 49.4181
+   13  HLA-B*46:01       RLWSWCGTS  RLWSWCGTS  0  0  0  0  0    RLWSWCGTS line188_NM_0011 0.0235710 38744.5 26.2660
+   14  HLA-B*46:01       LWSWCGTSQ  LWSWCGTSQ  0  0  0  0  0    LWSWCGTSQ line188_NM_0011 0.0200420 40252.5 32.3082
+   15  HLA-B*46:01       WSWCGTSQT  WSWCGTSQT  0  0  0  0  0    WSWCGTSQT line188_NM_0011 0.0488090 29486.1  8.6463
+   16  HLA-B*46:01       SWCGTSQTY  SWCGTSQTY  0  0  0  0  0    SWCGTSQTY line188_NM_0011 0.0565220 27125.3  6.6641
+   17  HLA-B*46:01       WCGTSQTYF  WCGTSQTYF  0  0  0  0  0    WCGTSQTYF line188_NM_0011 0.0388190 32851.9 12.6681
+   18  HLA-B*46:01       CGTSQTYFG  CGTSQTYFG  0  0  0  0  0    CGTSQTYFG line188_NM_0011 0.0096820 45027.2 64.2907
+   19  HLA-B*46:01       GTSQTYFGS  GTSQTYFGS  0  0  0  0  0    GTSQTYFGS line188_NM_0011 0.0164180 41862.2 40.6043
+   20  HLA-B*46:01       TSQTYFGSX  TSQTYFGSX  0  0  0  0  0    TSQTYFGSX line188_NM_0011 0.0429510 31415.5 10.7083
+-----------------------------------------------------------------------------------
+
+Protein line188_NM_0011. Allele HLA-B*46:01. Number of high binders 0. Number of weak binders 0. Number of peptides 20
 
 -----------------------------------------------------------------------------------

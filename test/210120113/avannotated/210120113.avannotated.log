@@ -5,7 +5,7 @@ ANNOVAR Information:
 ANNOVAR Command:
 	/data1/software/annovar/annotate_variation.pl -out /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/avannotated/210120113.avannotated -build hg19 -dbtype refGene /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/avready/210120113.avinput /data1/software/annovar/humandb --comment
 ANNOVAR Started:
-	Thu Feb  4 11:32:58 2021
+	Fri Feb  5 09:57:52 2021
 NOTICE: The --geneanno operation is set to ON by default
 NOTICE: Output files were written to /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/avannotated/210120113.avannotated.variant_function, /home/fulongfei/workdir/git_repo/NeoPred/test/210120113/avannotated/210120113.avannotated.exonic_variant_function
 NOTICE: Reading gene annotation from /data1/software/annovar/humandb/hg19_refGene.txt ... Done with 63481 transcripts (including 15216 without coding sequence annotation) for 27720 unique genes
