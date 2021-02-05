@@ -278,7 +278,7 @@ def FinalOut(sampleClasses, Options, indelProcess=False):
     if Options.includeall:
         outFile = Options.OutputDir + Options.outName + filePostFix + ".unfiltered.txt"
     else:
-        outFile = Options.OutputDir + Options.outName + filePostFix + ".txt"
+        outFile = Options.OutputDir + Options.outName + filePostFix + ".txt" # outfile
 
     outTable = Options.OutputDir + Options.outName + filePostFix + ".summarytable.txt"
 
@@ -303,6 +303,9 @@ def FinalOut(sampleClasses, Options, indelProcess=False):
                             pentultimateFile.write(line+"\n")
                             summaryTable.append(line)
 
+    
+    # DO NOT SUMMARY
+    '''
     summaries = {}
     for z in range(0, len(sampleClasses)):
         appendedEps = getattr(sampleClasses[z],epitopesToProcess)
@@ -434,8 +437,9 @@ def FinalOut(sampleClasses, Options, indelProcess=False):
                 line = [patient, summaries[patient]['Total'], summaries[patient]['WB'], summaries[patient]['SB']]
                 line = [str(i) for i in line]
                 finalFile.write('\t'.join(line) + '\n')
-
+    
     print("INFO: Summary Tables Complete.")
+    '''
 
 def CleanUp(Options):
     if Options.cleanLog or Options.makeitclean:
