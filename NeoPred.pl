@@ -5,12 +5,13 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$tcol,$sampleType,$nbam,$bed,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
+my ($name,$tvcf,$tcol,$tmb,$sampleType,$nbam,$bed,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
     "vcf:s" => \$tvcf,                # tumor vcf file          [Need]
     "tcol:i" => \$tcol,               # tumor Col in VCF        [Default:10]
+    "tmb:s" => \$tmb,                 # tmb file                [Need]
     "stype:s" => \$sampleType,        # sample type             [Default: Tissue]   <Tissue | Plasma>
     "nbam:s" => \$nbam,               # normal bam file         [Need]
     "bed:s"  => \$bed,                # BED file                [Need]
@@ -40,7 +41,7 @@ GetOptions(
 
 
 # check args
-if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir || not defined $bed){
+if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir || not defined $bed || not defined $tmb){
     die "please check you args spec\n";
 }
 
@@ -156,7 +157,7 @@ print SH "$cmd\n";
 # calculate tumor neo burden (TNB)
 # outfile is: *.TNB.txt
 my $neo_res = "$outdir/$name/$name\.Neo.Pred.Result.Final.xls";
-$cmd = "perl $Bin/bin/cal_TNB.pl $neo_res $name $bed $outdir/$name\n";
+$cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $bed $outdir/$name\n";
 print SH "$cmd\n";
 
 
