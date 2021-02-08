@@ -78,13 +78,14 @@ while (<IN>){
 	}else{
 		my @val = split /\t/;
 		my @must_vcf_col = @val[0,1,2,3,4,5,6,7,8];
-		my $tval = $val[$tcol - 1];
+		my $tval = $val[$tcol - 1]; # tumor info
 		push @must_vcf_col, $tval;
 		my $val = join "\t", @must_vcf_col;
 
 		next if ($val[6] ne "PASS");
 		
-		my $depth_info = (split /\:/, $val[-1])[1];
+		my $depth_info = (split /\:/, $tval)[1];
+		#print "$depth_info\n";
 		my @depth = split /\,/, $depth_info;
 		my $ref_n = int($depth[0]);
 		my $alt_n = int($depth[1]);
