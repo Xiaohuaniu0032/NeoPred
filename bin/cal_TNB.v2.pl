@@ -9,26 +9,15 @@ use warnings;
 # 2021/2/5
 ####################################
 
-my ($neo_res,$tmb_res,$name,$bed,$outdir) = @ARGV;
+my ($neo_res,$tmb_res,$name,$cds_len,$outdir) = @ARGV;
 
 # check file exists
 die "can not find $neo_res\n" if (!-e $neo_res);
 die "can not find $tmb_res\n" if (!-e $tmb_res);
 
-# cal bed length
-my $cap_len = 0;
-open BED, "$bed" or die;
-while (<BED>){
-	chomp;
-	my @arr = split /\t/;
-	my $base_n = $arr[2] - $arr[1];
-	$cap_len += $base_n;
-}
-close IN;
-
-print "BED cap len (in bp) is: $cap_len\n";
-my $cap_len_M = sprintf "%.2f", $cap_len/1000000;
-print "BED cap len (in Mbp) is: $cap_len_M\n";
+print "BED cap len (in bp) is: $cds_len\n";
+my $cds_len_M = sprintf "%.2f", $cds_len/1000000;
+print "BED cap len (in Mbp) is: $cds_len_M\n";
 
 
 # read tmb file
@@ -55,7 +44,7 @@ while (<IN>){
 	if (exists $var_tmb{$var}){
 		push @line, $arr[1];
 	}else{
-		print "$_ \[$var\] do not exists in $tmb_res file, please pay attentation\n";
+		print "$var do not exists in $tmb_res file, please pay attentation\n";
 	}
 }
 close IN;
@@ -74,7 +63,7 @@ my $outfile = "$outdir/$name\.TNB.txt";
 open O, ">$outfile" or die;
 print O "Sample\tTNB\n";
 
-my $tnb = sprintf "%.2f", $neo_n/$cap_len_M;
+my $tnb = sprintf "%.2f", $neo_n/$cds_len_M;
 print "$name TNB (tumor neoantigens burden) is: $tnb\/M\n";
 print O "$name\t$tnb\/M\n";
 close O;
