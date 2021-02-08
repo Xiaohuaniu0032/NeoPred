@@ -61,7 +61,7 @@ print "$name has $neo_n Uniq neo antigens\n";
 
 my $outfile = "$outdir/$name\.TNB.txt";
 open O, ">$outfile" or die;
-print O "Sample\tTNB\n";
+print O "\#Sample\tTNB\n";
 
 my $tnb = sprintf "%.2f", $neo_n/$cds_len_M;
 print "$name TNB (tumor neoantigens burden) is: $tnb\/M\n";
