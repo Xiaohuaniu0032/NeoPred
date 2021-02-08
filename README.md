@@ -10,11 +10,13 @@ predict tumor neoantigens using NeoPredPipe software
 
 `-tcol`: tumor col in vcf file [Default: 10]
 
+`-tmb`: tmb file (for general user, you do not need specify this arg)
+
 `-stype`: sample type [Default: Tissue] [Tissue | Plasma]
 
 `-nbam`: normal bam file [Need]
 
-`-bed`: bed file [Need]
+`-len`: capture CDS len (used to calculate TNB)
 
 `-rank`: NetMHCPan rank [Default:0.5]
 
@@ -31,6 +33,10 @@ predict tumor neoantigens using NeoPredPipe software
 `bedtools`: bedtools [Default]
 
 `-ref`: ref fasta [Default]
+
+`-u`: use which version script to calculate TNB (for general user, you do not need to specify this arg)
+
+>Note: `-u` controls which script should be used to calculate the TNB (for gereral user, you do not need to specify `-u` and `-tmb`, these two args are only useful for our inner company)
 
 ## Method
 1. HLA typing: `OptiType` (v1.3.2)
@@ -177,15 +183,18 @@ at present, we use two values to filter the raw NetMHCPan result:
 
 2) Affinity(nM) <= 500 (suggested by PVACtoos)
 
+>Note: if a variant in VCF has >= 2 SB results, only one SB result with smallest affinity will be selected for this variant
+
 ## How to calculate TNB
 
-1) calculate bed region length (Mbp): `cap_len_M`
+1) calculate how many uniq variant in VCF (line is uniq): `neo_n`
 
-2) calculate how many uniq variant in VCF (line is uniq): `neo_n`
+2) TNB = `neo_n` / `cap_len_M`
 
-3) TNB = `neo_n` / `cap_len_M`
+>Note: `cap_len_M` is calculate by `len/1000000`, `len` is the exon region base number (bp)
 
->Note: if a variant in VCF file has >= 2 strong binder (SB) results (for example, this variant is a SB for `EpitopeLen` == 8 and a SB for `EpitopeLen` == 9, this variant is just treat as one unique neoantigens.
+
+>Note: if a variant in VCF file has >= 2 strong binder (SB) results (for example, this variant is a SB for `EpitopeLen` == 8 and a SB for `EpitopeLen` == 9), this variant is just treat as one unique neoantigens (we will choose the smallest affinity epitope for this variant)
 
 ## Software Needed
 1. see `https://github.com/FRED-2/OptiType` for `OptiType` requirements
