@@ -5,7 +5,7 @@ use Data::Dumper;
 
 
 ##################
-# FOR SNV
+# SNV && InDel
 
 my ($name,$type,$resdir,$len,$aff_cutoff,$rank_cutoff,$outdir);
 
@@ -178,7 +178,7 @@ close NM;
 my $outfile = "$outdir/$name\.epi\.$len\.$type\.final.result.xls";
 
 open O, ">$outfile" or die;
-print O "Sample\tLine\tVariantType\tEpitopeLen\tGene\tChr\tPos\tRef\tAlt\tNM\tExon\tc.HGVS\tp.HGVS\tVariantFunctionAnnot\tRefDepth\tAltDepth\tVAF(%)\tHLA\tPeptide\tCore\tOf\tGp\tGl\tIp\tIl\tIcore\tIdentity\tScore\tAffinity(nM)\tRank(%)\n";
+print O "\#Sample\tLine\tVariantType\tEpitopeLen\tGene\tChr\tPos\tRef\tAlt\tNM\tExon\tc.HGVS\tp.HGVS\tVariantFunctionAnnot\tRefDepth\tAltDepth\tVAF(%)\tHLA\tPeptide\tCore\tOf\tGp\tGl\tIp\tIl\tIcore\tIdentity\tScore\tAffinity(nM)\tRank(%)\n";
 
 open IN, "$raw_pred_res" or die;
 while (<IN>){
