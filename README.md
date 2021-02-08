@@ -30,7 +30,7 @@ predict tumor neoantigens using NeoPredPipe software
 
 `-samtools`: samtools [Default]
 
-`bedtools`: bedtools [Default]
+`-bedtools`: bedtools [Default]
 
 `-ref`: ref fasta [Default]
 
