@@ -103,16 +103,16 @@ my $runsh = "$outdir/$name/neo\.$name\.sh";
 open SH, ">$runsh" or die;
 
 # get HLA region's fq1 & fq2
-print SH "\#perl $Bin/bin/extract_hla_reads_from_nbam.pl $nbam $name $ref $samtools $bedtools $outdir/$name\n";
+print SH "perl $Bin/bin/extract_hla_reads_from_nbam.pl $nbam $name $ref $samtools $bedtools $outdir/$name\n";
 
 # do HLA typing
 my $fq1 = "$outdir/$name/$name\.hla.chr6region.1.fastq";
 my $fq2 = "$outdir/$name/$name\.hla.chr6region.2.fastq";
-print SH "\#$py2_bin $Bin/tools/OptiType-1.3.2/OptiTypePipeline.py -i $fq1 $fq2 --dna -v -o $outdir/$name -c $Bin/tools/OptiType-1.3.2/config.ini.example\n";
+print SH "$py2_bin $Bin/tools/OptiType-1.3.2/OptiTypePipeline.py -i $fq1 $fq2 --dna -v -o $outdir/$name -c $Bin/tools/OptiType-1.3.2/config.ini.example\n";
 
 # re-format HLA result
-print SH "\#cp $outdir/$name/*/*_result.tsv $outdir/$name/hla.raw.result.tsv\n";
-print SH "\#perl $Bin/bin/reformat_HLA_typing_result.pl $outdir/$name/hla.raw.result.tsv $name $outdir/$name\n";
+print SH "cp $outdir/$name/*/*_result.tsv $outdir/$name/hla.raw.result.tsv\n";
+print SH "perl $Bin/bin/reformat_HLA_typing_result.pl $outdir/$name/hla.raw.result.tsv $name $outdir/$name\n";
 
 # do neo antigene prediction
 # make a dir to contain origin VCF (soft link)
@@ -120,8 +120,8 @@ if (!-d "$outdir/$name/vcf"){
     `mkdir $outdir/$name/vcf`;
 }
 
-print SH "\#cd $outdir/$name/vcf\n";
-print SH "\#ln -s $tvcf $name\.vcf\n"; # obey NeoPredPipe's VCF naming
+print SH "cd $outdir/$name/vcf\n";
+print SH "ln -s $tvcf $name\.vcf\n"; # obey NeoPredPipe's VCF naming
 
 my $hla_result = "$outdir/$name/$name\.hla.xls"; # re-formatted hla
 
@@ -131,12 +131,12 @@ if (!-d "$outdir/$name/vcf_clean"){
 	`mkdir $outdir/$name/vcf_clean`;
 }
 
-my $cmd = "\#perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean -t $sampleType -col $tcol";
+my $cmd = "perl $Bin/bin/filter_tumor_vcf.pl -vcf $tvcf -od $outdir/$name/vcf_clean -t $sampleType -col $tcol";
 print SH "$cmd\n";
 
 
 # main method
-print SH "\#$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_clean -H $hla_result -o $outdir/$name -n $name -E 8 9 10\n";
+print SH "$py3_bin $Bin/tools/NeoPredPipe/NeoPredPipe.py -I $outdir/$name/vcf_clean -H $hla_result -o $outdir/$name -n $name -E 8 9 10\n";
 
 
 
@@ -148,14 +148,14 @@ my @type = qw/SNV InDel/;
 for my $len (@len){
 	for my $t (@type){
 		$cmd = "perl $Bin/bin/parse_NetMHCPan_raw_result.SNV.InDel.pl -n $name -t $t -l $len -d $outdir -od $outdir/$name -aff $aff -rank $rank";
-		print SH "\#$cmd\n";
+		print SH "$cmd\n";
 	}
 }
 
 # summary SNV & InDel result into final result file
 # outfile is: *.Neo.Pred.Result.Final.xls
 $cmd = "perl $Bin/bin/summary_result.pl $outdir/$name $name $outdir/$name";
-print SH "\#$cmd\n";
+print SH "$cmd\n";
 
 
 # calculate tumor neo burden (TNB)
@@ -163,7 +163,6 @@ print SH "\#$cmd\n";
 my $neo_res = "$outdir/$name/$name\.Neo.Pred.Result.Final.xls";
 $cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $cds_len $outdir/$name\n";
 print SH "$cmd\n";
-
 
 close SH;
 
