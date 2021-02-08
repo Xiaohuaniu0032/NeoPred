@@ -5,7 +5,7 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$tcol,$tmb,$sampleType,$nbam,$cds_len,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref);
+my ($name,$tvcf,$tcol,$tmb,$sampleType,$nbam,$cds_len,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref,$user);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
@@ -23,6 +23,7 @@ GetOptions(
     "samtools:s" => \$samtools,       # samtools bin            [Default: /home/fulongfei/miniconda3/bin/samtools]
     "bedtools:s" => \$bedtools,       # bedtools bin            [Default: /home/fulongfei/miniconda3/bin/bedtools]
     "ref:s" => \$ref,                 # ref fasta               [Default: /data1/database/b37/human_g1k_v37.fasta]
+    "u:s" => \$user,                  # if inner company use    [Default: "private"]
     ) or die;
 
 
@@ -47,6 +48,10 @@ if (not defined $name || not defined $tvcf || not defined $nbam || not defined $
 
 
 # default values
+if (not defined $user){
+	$user = "private";
+}
+
 if (not defined $py2_bin){
     $py2_bin = "/home/fulongfei/miniconda3/envs/py27/bin/python2";
 }
@@ -161,8 +166,15 @@ print SH "$cmd\n";
 # calculate tumor neo burden (TNB)
 # outfile is: *.TNB.txt
 my $neo_res = "$outdir/$name/$name\.Neo.Pred.Result.Final.xls";
-$cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $cds_len $outdir/$name\n";
-print SH "$cmd\n";
+
+# use which version to cal TNB
+if ($user eq "private"){
+	$cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $cds_len $outdir/$name\n";
+	print SH "$cmd\n";
+}else{
+	$cmd = "perl $Bin/bin/cal_TNV.v1.pl $neo_res $name $cds_len $outdir/$name\n";
+	print SH "$cmd\n";
+}
 
 close SH;
 
