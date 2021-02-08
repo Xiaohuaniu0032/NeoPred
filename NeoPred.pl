@@ -11,7 +11,7 @@ GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
     "vcf:s" => \$tvcf,                # tumor vcf file          [Need]
     "tcol:i" => \$tcol,               # tumor Col in VCF        [Default:10]
-    "tmb:s" => \$tmb,                 # tmb file                [Need]
+    "tmb:s" => \$tmb,                 # tmb file                [Optional <Need if specify -u>]
     "stype:s" => \$sampleType,        # sample type             [Default: Tissue]   <Tissue | Plasma>
     "nbam:s" => \$nbam,               # normal bam file         [Need]
     "len:i" => \$cds_len,             # capture region CDS len  [Default: 1149813 (889panel)]
@@ -23,7 +23,7 @@ GetOptions(
     "samtools:s" => \$samtools,       # samtools bin            [Default: /home/fulongfei/miniconda3/bin/samtools]
     "bedtools:s" => \$bedtools,       # bedtools bin            [Default: /home/fulongfei/miniconda3/bin/bedtools]
     "ref:s" => \$ref,                 # ref fasta               [Default: /data1/database/b37/human_g1k_v37.fasta]
-    "u!" => \$user,                   #
+    "u!" => \$user,                   #                         [Optional]
     ) or die;
 
 
@@ -42,8 +42,15 @@ GetOptions(
 
 
 # check args
-if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir || not defined $tmb){
+if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir){
     die "please check you args spec\n";
+}
+
+if ($user){
+	# check tmb file
+	if (not defined $tmb){
+		die "please provide tmb file\n";
+	}
 }
 
 
