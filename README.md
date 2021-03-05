@@ -2,7 +2,8 @@
 predict tumor neoantigens using NeoPredPipe software
 
 ## Usage
-`perl NeoPred.pl -n <sample name> -vcf <tumor vcf> -tcol <tumor col in VCF> -stype <sample type> -nbam <normal bam> -bed <bed> -rank <rank> -aff <affinity> -od <output dir> -col <tumor col in vcf> -py2 <python2> -py3 <python3> -samtools <samtools> -bedtools <bedtools> -ref <ref fasta>`
+`perl NeoPred.pl -n <sample name> -vcf <tumor vcf> -tcol <tumor col in VCF> -tmbdir <DIR> -stype <sample type> -nbam <normal bam> -rank <rank> -aff <affinity> -od <output dir> -py2 <python2> -py3 <python3> -samtools <samtools> -bedtools <bedtools> -ref <ref fasta>`
+
 ### parameter specification
 `-n`: sample name [Need]
 
@@ -10,13 +11,11 @@ predict tumor neoantigens using NeoPredPipe software
 
 `-tcol`: tumor col in vcf file [Default: 10]
 
-`-tmb`: tmb file (for general user, you do not need specify this arg)
+`-tmbdir`: TMB DIR (/path/*_TMB)
 
 `-stype`: sample type [Default: Tissue] [Tissue | Plasma]
 
 `-nbam`: normal bam file [Need]
-
-`-len`: capture CDS len (used to calculate TNB)
 
 `-rank`: NetMHCPan rank [Default:0.5]
 
@@ -34,9 +33,6 @@ predict tumor neoantigens using NeoPredPipe software
 
 `-ref`: ref fasta [Default]
 
-`-u`: use which version script to calculate TNB (for general user, you do not need to specify this arg)
-
->Note: `-u` controls which script should be used to calculate the TNB (for gereral user, you do not need to specify `-u` and `-tmb`, these two args are only useful for our inner company)
 
 ## Method
 1. HLA typing: `OptiType` (v1.3.2)
