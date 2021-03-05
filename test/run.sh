@@ -3,5 +3,6 @@ vcf='/data3/Projects/panel889/210122_A00679_0483_BHV2VYDSXY/03_var/210120113.snv
 nbam='/data3/Projects/panel889/210122_A00679_0483_BHV2VYDSXY/02_aln/210120113N.rmdup.bam'
 od=$PWD
 bed='/home/wangce/workdir/database/humandb/panel/889genes_20191225.bed'
+dir='/data3/Projects/panel889/210122_A00679_0483_BHV2VYDSXY/03_var/210120113_TMB'
 
-perl ../NeoPred.pl -n $name -vcf $vcf -nbam $nbam -od $od -bed $bed
+perl ../NeoPred.pl -n $name -vcf $vcf -nbam $nbam -od $od -bed $bed -tmbdir $dir
