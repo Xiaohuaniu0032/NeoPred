@@ -5,16 +5,15 @@ use File::Basename;
 use Data::Dumper;
 use FindBin qw/$Bin/;
 
-my ($name,$tvcf,$tcol,$tmb,$sampleType,$nbam,$cds_len,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref,$user);
+my ($name,$tvcf,$tcol,$tmb_dir,$sampleType,$nbam,$rank,$aff,$outdir,$col,$py2_bin,$py3_bin,$samtools,$bedtools,$ref,$user);
 
 GetOptions(
     "n:s" => \$name,                  # sample name             [Need]
     "vcf:s" => \$tvcf,                # tumor vcf file          [Need]
     "tcol:i" => \$tcol,               # tumor Col in VCF        [Default:10]
-    "tmb:s" => \$tmb,                 # tmb file                [Optional <Need if specify -u>]
+    "tmbdir:s" => \$tmb_dir,          # TMB DIR                 [Need]
     "stype:s" => \$sampleType,        # sample type             [Default: Tissue]   <Tissue | Plasma>
     "nbam:s" => \$nbam,               # normal bam file         [Need]
-    "len:i" => \$cds_len,             # capture region CDS len  [Default: 1149813 (889panel)]
     "rank:f" => \$rank,               # SB binder cutoff        [Default: < 0.5]
     "aff:i" => \$aff,                 # affinity to MHC (nM)    [Default: 500]
     "od:s" => \$outdir,               # output dir              [Need]
@@ -23,7 +22,6 @@ GetOptions(
     "samtools:s" => \$samtools,       # samtools bin            [Default: /home/fulongfei/miniconda3/bin/samtools]
     "bedtools:s" => \$bedtools,       # bedtools bin            [Default: /home/fulongfei/miniconda3/bin/bedtools]
     "ref:s" => \$ref,                 # ref fasta               [Default: /data1/database/b37/human_g1k_v37.fasta]
-    "u!" => \$user,                   #                         [Optional]
     ) or die;
 
 
@@ -42,16 +40,16 @@ GetOptions(
 
 
 # check args
-if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir){
+if (not defined $name || not defined $tvcf || not defined $nbam || not defined $outdir || not defined $tmb_dir){
     die "please check you args spec\n";
 }
 
-if ($user){
-	# check tmb file
-	if (not defined $tmb){
-		die "please provide tmb file\n";
-	}
-}
+#if ($user){
+#	# check tmb file
+#	if (not defined $tmb){
+#		die "please provide tmb file\n";
+#	}
+#}
 
 
 # default values
@@ -83,9 +81,9 @@ if (not defined $aff){
 	$aff = 500; # suggested value by PVACtools
 }
 
-if (not defined $cds_len){
-	$cds_len = 1149813; # for 889 panel
-}
+#if (not defined $cds_len){
+#	$cds_len = 1149813; # for 889 panel
+#}
 
 if (not defined $sampleType){
 	$sampleType = "Tissue";
@@ -170,14 +168,14 @@ print SH "$cmd\n";
 # outfile is: *.TNB.txt
 my $neo_res = "$outdir/$name/$name\.Neo.Pred.Result.Final.xls";
 
-# use which version to cal TNB
-if ($user){
-	$cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $cds_len $outdir/$name\n";
-	print SH "$cmd\n";
-}else{
-	$cmd = "perl $Bin/bin/cal_TNV.v1.pl $neo_res $name $cds_len $outdir/$name\n";
-	print SH "$cmd\n";
-}
+# under /03_var/*_TMB/ DIR
+my $tmb = "$tmb_dir/tmb.mutation";
+my $bed = "$tmb_dir/filter.bed";
+die "can not find $tmb or $bed file to calculate TNB\n" if (!-e $tmb || !-e $bed);
+
+$cmd = "perl $Bin/bin/cal_TNB.v2.pl $neo_res $tmb $name $bed $outdir/$name\n";
+print SH "$cmd\n";
+
 
 close SH;
 
