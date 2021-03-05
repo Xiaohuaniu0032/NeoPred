@@ -3,22 +3,29 @@ use warnings;
 
 
 ############ Note ##################
-# this script is only used in Letu Beijing
-# for other users, please use general cal_TNB.pl script
-#
 # 2021/2/5
 ####################################
 
-my ($neo_res,$tmb_res,$name,$cds_len,$outdir) = @ARGV;
+#my ($neo_res,$tmb_res,$name,$cds_len,$outdir) = @ARGV;
+my ($neo_res,$tmb_res,$name,$bed,$outdir) = @ARGV;
 
 # check file exists
 die "can not find $neo_res\n" if (!-e $neo_res);
 die "can not find $tmb_res\n" if (!-e $tmb_res);
 
+my $cds_len;
+open BED, "$bed" or die;
+while (<BED>){
+	chomp;
+	my @arr = split /\t/;
+	my $len = $arr[2] - $arr[1];
+	$cds_len += $len;
+}
+close BED;
+	
 print "BED cap len (in bp) is: $cds_len\n";
 my $cds_len_M = sprintf "%.2f", $cds_len/1000000;
 print "BED cap len (in Mbp) is: $cds_len_M\n";
-
 
 # read tmb file
 my %var_tmb;
